@@ -1,55 +1,23 @@
-`avr-hal-template`
-==================
-[`cargo-generate`] template for jumpstarting projects on common AVR
-microcontroller boards.  This template supports the following hardware at this
-time:
+This program was created with the help of avr-hal template, which automatically
+creates an easy to modify template for avr projects. Guide for using the template for outside projects
+programs: https://github.com/Rahix/avr-hal-template.git
 
- - Arduino Leonardo
- - Arduino Mega 2560
- - Arduino Nano
- - Arduino Nano New Bootloader (Manufactured after January 2018)
- - Arduino Uno
- - SparkFun ProMicro
- - Adafruit Trinket
- - Adafruit Trinket Pro
-
-## Usage
-If you don't have them already, install [`cargo-generate`] and [`ravedude`]:
+## Running the program
+If you don't have them already, install  [`ravedude`]:
 
 ```bash
-cargo install cargo-generate
 cargo install ravedude
 ```
-
-Then instanciate this template:
-
-```bash
-cargo generate --git https://github.com/Rahix/avr-hal-template.git
-```
-
-You will be prompted to select your board - do so and you're ready to roll!
-Everything is prepared so you should be able to just
+Once ravedude has been installed, avr board can be flashed. This project requires an arduino atmega2560.
+The template has the required flags for flashing the board, so running the program flashes the board
+automatically.
 
 ```bash
 cargo run
 ```
 
-and see a blinky flashed to your board!
-
-[`cargo-generate`]: https://github.com/cargo-generate/cargo-generate
 [`ravedude`]: https://github.com/Rahix/avr-hal/tree/next/ravedude
 
-## License
-Licensed under either of
-
- - Apache License, Version 2.0
-   ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
- - MIT license
-   ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
-
-at your option.
-
-## Contribution
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in the work by you, as defined in the Apache-2.0 license, shall
-be dual licensed as above, without any additional terms or conditions.
+## Program description.
+This project creates the millis function for arduino, reads the value of it while reading bytes of data (3 characters + enter is the limit) and says the ascii value and time.
+While data is being read, the onboard led is on. There is 1 second delay per character, so it can be more easily noticed. Once the program finishes reading input, it goes to a powersafe mode.
